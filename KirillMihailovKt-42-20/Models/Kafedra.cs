@@ -1,4 +1,6 @@
-﻿namespace KirillMihailovKt_42_20.Models
+﻿using System.Text.Json.Serialization;
+
+namespace KirillMihailovKt_42_20.Models
 {
     public class Kafedra
     {
@@ -7,7 +9,7 @@
         public DateTime DateFoundation { get; set; }
 
         public int PrepodCount {  get; set; }
-
+        [JsonIgnore]
         public List<Prepod>? Prepod { get; set; }
     }
 }

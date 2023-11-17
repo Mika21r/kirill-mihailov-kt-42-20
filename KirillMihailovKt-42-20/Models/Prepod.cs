@@ -1,4 +1,6 @@
-﻿namespace KirillMihailovKt_42_20.Models
+﻿using System.Text.Json.Serialization;
+
+namespace KirillMihailovKt_42_20.Models
 {
     public class Prepod
     {
@@ -9,8 +11,10 @@
 
         public int KafedraId { get; set; }
         public int AcademicDegreeId { get; set; }
+        [JsonIgnore]
 
         public Kafedra? Kafedra { get; set; }
+        [JsonIgnore]
         public AcademicDegree? AcademicDegree { get; set; }
 
         public bool IsvalidPrepodFirstName()
