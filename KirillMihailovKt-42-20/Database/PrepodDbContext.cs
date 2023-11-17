@@ -7,13 +7,15 @@ namespace KirillMihailovKt_42_20.Database
 {
     public class PrepodDbContext : DbContext
     {
-        DbSet<Kafedra> Kafedra { get; set; }
-        DbSet<Prepod> Prepod { get; set; }
+        public DbSet<Kafedra> Kafedra { get; set; }
+        public DbSet<Prepod> Prepod { get; set; }
+        public DbSet<AcademicDegree> AcademicDegree { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new PrepodConfiguration());
             modelBuilder.ApplyConfiguration(new KafedraConfiguration());
+            modelBuilder.ApplyConfiguration(new AcademicDegreeConfiguration());
         }
         public PrepodDbContext(DbContextOptions<PrepodDbContext> options) : base(options) 
         {

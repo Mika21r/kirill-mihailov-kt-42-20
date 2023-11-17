@@ -29,8 +29,18 @@ namespace KirillMihailovKt_42_20.Database.Configuration
                 .HasColumnName("c_kafedra_name")
                 .HasColumnType(ColumnType.String).HasMaxLength(100)
                 .HasComment("Название кафедры");
+
+            builder.Property(p => p.DateFoundation)
+                .IsRequired()
+                .HasColumnName("c_kafedra_DateFoundation")
+                .HasColumnType(ColumnType.DateTime)
+                .HasComment("Дата основания кафедры");
+
             builder
-                .ToTable(TableName);
+                .Property(p => p.PrepodCount)
+                .IsRequired()
+                .HasColumnName("c_kafedra_PrepodCount")
+                .HasComment("Количество преподавателей в кафедре");
         }
     }
 }

@@ -2,6 +2,7 @@ using KirillMihailovKt_42_20.Database;
 using Microsoft.EntityFrameworkCore;
 using NLog;
 using NLog.Web;
+using static KirillMihailovKt_42_20.ServiceExtensions.ServiceExtensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,6 +21,8 @@ try
 
     builder.Services.AddDbContext<PrepodDbContext>(options =>
         options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+    builder.Services.AddServices();
 
     var app = builder.Build();
 

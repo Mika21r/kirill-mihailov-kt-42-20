@@ -45,14 +45,29 @@ namespace KirillMihailovKt_42_20.Database.Configuration
 
             builder.ToTable(TableName)
                 .HasOne(p => p.Kafedra)
-                .WithMany()
+                .WithMany(t => t.Prepod)
                 .HasForeignKey(p => p.KafedraId)
                 .HasConstraintName("fk_f_kafedra_id")
                 .OnDelete(DeleteBehavior.Cascade);
 
             builder.ToTable(TableName)
-                .HasIndex(p => p.KafedraId, $"idx_{TableName}_fk_f_kafedra_id");
+                .HasIndex(p => p.KafedraId);
+            builder.Navigation(p => p.Kafedra);
 
+            builder.Property(p => p.AcademicDegreeId)
+               .HasColumnName("c_prepod_academicdegreeId")
+               .HasComment("Идентификатор ученой степени");
+
+            builder.ToTable(TableName)
+                .HasOne(p => p.AcademicDegree)
+                .WithMany(t => t.Prepod)
+                .HasForeignKey(p => p.AcademicDegreeId)
+                .HasConstraintName("fk_f_academicdegree_id")
+                .OnDelete(DeleteBehavior.Cascade);
+
+            builder.ToTable(TableName)
+                .HasIndex(p => p.AcademicDegreeId);
+            builder.Navigation(p => p.AcademicDegree);
         }
     }
 }

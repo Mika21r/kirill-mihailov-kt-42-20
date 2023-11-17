@@ -3,6 +3,7 @@
     public class ColumnType
     {
         public const string Date = "timestamp";
+        public const string DateTime = "DateTime";
         public const string Guid = "uuid";
         public const string String = "nvarchar(Max)";
         public const string Text = "text";
