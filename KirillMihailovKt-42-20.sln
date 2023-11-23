@@ -5,6 +5,8 @@ VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KirillMihailovKt-42-20", "KirillMihailovKt-42-20\KirillMihailovKt-42-20.csproj", "{400F5BC7-DA51-42F6-AB5E-AECAE9659DA3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KirillMihailovKT-42-20.Tests", "KirillMihailovKT-42-20.Tests\KirillMihailovKT-42-20.Tests.csproj", "{D906FD2F-21F6-4725-8F83-F37B274ED83B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{400F5BC7-DA51-42F6-AB5E-AECAE9659DA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{400F5BC7-DA51-42F6-AB5E-AECAE9659DA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{400F5BC7-DA51-42F6-AB5E-AECAE9659DA3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D906FD2F-21F6-4725-8F83-F37B274ED83B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D906FD2F-21F6-4725-8F83-F37B274ED83B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D906FD2F-21F6-4725-8F83-F37B274ED83B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D906FD2F-21F6-4725-8F83-F37B274ED83B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

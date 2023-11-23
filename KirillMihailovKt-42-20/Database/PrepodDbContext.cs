@@ -1,7 +1,6 @@
 ﻿using KirillMihailovKt_42_20.Database.Configuration;
 using KirillMihailovKt_42_20.Models;
 using Microsoft.EntityFrameworkCore;
-using System.Text.RegularExpressions;
 
 namespace KirillMihailovKt_42_20.Database
 {
@@ -19,6 +18,7 @@ namespace KirillMihailovKt_42_20.Database
         }
         public PrepodDbContext(DbContextOptions<PrepodDbContext> options) : base(options) 
         {
+
         }
     }
 }

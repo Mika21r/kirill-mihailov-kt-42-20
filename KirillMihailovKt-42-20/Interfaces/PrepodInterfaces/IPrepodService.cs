@@ -12,7 +12,7 @@ namespace KirillMihailovKt_42_20.Interfaces.PrepodInterfaces
         public Task<Prepod[]> GetPrepodByAcademicDegreeAsync(PrepodAcademicDegreeFilter filter, CancellationToken cancellationToken);
         public Task CreatePrepod(Prepod prepod);
         public Task DeletePrepod(Prepod prepod);
-        public Task UpdatePrepod(Prepod teacher);
+        public Task UpdatePrepod(Prepod prepod);
     }
 
     public class PrepodService : IPrepodService
