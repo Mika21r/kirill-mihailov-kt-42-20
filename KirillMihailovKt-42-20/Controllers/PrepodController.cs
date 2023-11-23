@@ -3,6 +3,7 @@ using KirillMihailovKt_42_20.Filters.PrepodFilters;
 using KirillMihailovKt_42_20.Interfaces.PrepodInterfaces;
 using KirillMihailovKt_42_20.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace KirillMihailovKt_42_20.Controllers
 {
@@ -47,6 +48,53 @@ namespace KirillMihailovKt_42_20.Controllers
             var prepod = await _prepodService.GetPrepodByAcademicDegreeAsync(filter, cancellationToken);
 
             return Ok(prepod);
+        }
+
+        [HttpPost]
+        [Route("createPrepod")]
+        public async Task<IActionResult> CreatePrepod(Prepod prepod)
+        {
+            
+            await _prepodService.CreatePrepod(prepod);
+
+            return Ok("create was successful");
+        }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdatePrepod(int id, Prepod prepod)
+        {
+            if (id != prepod.PrepodId)
+            {
+                return BadRequest();
+            }
+            
+            try
+            {
+               await _prepodService.UpdatePrepod(prepod);
+
+                return Ok("vse ok");
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                return BadRequest();
+            }
+
+        }
+
+        // DELETE:
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeletePrepod(int id)
+        {
+           
+            var prepod = await _dbContext.Prepod.FindAsync(id);
+
+            if (prepod == null)
+            {
+                return NotFound();
+            }
+            await _prepodService.DeletePrepod(prepod);
+
+            return Ok("removal was successful");
         }
     }
 

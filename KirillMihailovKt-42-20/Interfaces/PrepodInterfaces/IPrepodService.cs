@@ -10,6 +10,9 @@ namespace KirillMihailovKt_42_20.Interfaces.PrepodInterfaces
         public Task<List<Prepod>> GetPrepodAsync();
         public Task<Prepod[]> GetPrepodByKafedraAsync(PrepodKafedraFilter filter, CancellationToken cancellationToken);
         public Task<Prepod[]> GetPrepodByAcademicDegreeAsync(PrepodAcademicDegreeFilter filter, CancellationToken cancellationToken);
+        public Task CreatePrepod(Prepod prepod);
+        public Task DeletePrepod(Prepod prepod);
+        public Task UpdatePrepod(Prepod teacher);
     }
 
     public class PrepodService : IPrepodService
@@ -35,6 +38,24 @@ namespace KirillMihailovKt_42_20.Interfaces.PrepodInterfaces
             var prepod = _dbContext.Set<Prepod>().Where(w => w.AcademicDegree.AcademicDegreeName == filter.AcademicDegreeName).ToArrayAsync(cancellationToken);
 
             return prepod;
+        }
+        public async Task CreatePrepod(Prepod prepod)
+        {
+            _dbContext.Prepod.Add(prepod);
+            await _dbContext.SaveChangesAsync();
+
+        }
+
+        public async Task DeletePrepod(Prepod prepod)
+        {
+            _dbContext.Prepod.Remove(prepod);
+            await _dbContext.SaveChangesAsync();
+        }
+
+        public async Task UpdatePrepod(Prepod prepod)
+        {
+            _dbContext.Entry(prepod).State = EntityState.Modified;
+            await _dbContext.SaveChangesAsync();
         }
     }
 }
